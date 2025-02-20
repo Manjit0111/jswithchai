@@ -2,6 +2,6 @@
     console.log("hello one")
 })();
 
-    ((name) => {
-        console.log(`hello ${name}`);
-    })("manjit")
+((name) => {
+    console.log(`hello ${name}`);
+})("manjit")
