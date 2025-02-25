@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+
+<body bgcolor="#4e81a3">
+    <!-- for add,edit and delete element -->
+    <ul class="languages" style="background-color: aliceblue;">
+        <li>Javascript</li>
+    </ul>
+
+    <!-- for manu[late li] -->
+    <ul class="parent">
+        <li class="child">child 1</li>
+        <li class="child">child 2</li>
+        <li class="child">child 3</li>
+        <li class="child">child 4</li>
+    </ul>
+
+</body>
+<script>
+
+    // add list
+    function addLang(langname) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langname));
+        document.querySelector('.languages').appendChild(li)
+    }
+    addLang('python')
+    addLang('java')
+    addLang('.net')
+
+    // update list
+    const secondlist = document.querySelector('li:nth-child(2)');
+    console.log("list is:", secondlist.innerHTML);
+    const newli = document.createElement('li');
+    newli.textContent = "ruby";
+    console.log("new list is:", newli.innerHTML);
+    secondlist.replaceWith(newli);
+
+    // remove list
+    const lastele = document.querySelector('li:last-child')
+    console.log("removable list is:", lastele.innerHTML);
+    lastele.remove()
+
+    // methods
+    const parent = document.querySelector('.parent');
+    parent.style.backgroundColor = 'black';
+
+    parent.style.color = 'white';
+
+    console.log(parent);
+    console.log(parent.children);
+    console.log(parent.children[1].innerHTML);
+
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerText);
+    }
+
+    parent.firstElementChild.style.color = "red";
+    parent.lastElementChild.style.color = "lime";
+
+    const child = document.querySelector('.child');
+    console.log(child);
+
+    console.log(child.parentElement)
+    console.log(child.nextElementSibling.innerHTML)
+
+    // create new div by script
+    function cretaeDiv(division, text) {
+        const div = document.createElement(division);
+        div.id = "myid";
+        div.className = "myid";
+        const addtext = document.createTextNode(text);
+        div.appendChild(addtext);
+        console.log(div);
+        div.style.backgroundColor = 'black';
+        div.style.color = 'white';
+        document.body.appendChild(div)
+    }
+    cretaeDiv('div', 'Hello are you');
+</script>
+
+</html>
